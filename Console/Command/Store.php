@@ -7,20 +7,22 @@ declare(strict_types=1);
 
 namespace DominicWatts\Norris\Console\Command;
 
+use DominicWatts\Norris\Helper\Store as StoreHelper;
 use Magento\Framework\App\Area;
 use Magento\Framework\App\State;
-use Magento\Framework\Console\Cli;
-use Psr\Log\LoggerInterface;
 use Magento\Framework\Stdlib\DateTime\DateTime;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use DominicWatts\Norris\Helper\Store as StoreHelper;
 
 class Store extends Command
 {
+    /**
+     * @var \Psr\Log\LoggerInterface
+     */
+    protected $logger;
+
     /**
      * @var \DominicWatts\Norris\Helper\Store
      */
