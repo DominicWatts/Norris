@@ -30,6 +30,9 @@
         <dt><strong><em><?= $block->escapeHtml(__("Tags")) ?></em></strong></dt>
         <dd><?= $block->escapeHtml($joke->getTag()) ?></dd>
         <?php endif; ?>
+
+        <dt><strong><em><?= $block->escapeHtml(__("Created At")) ?></em></strong></dt>
+        <dd><?= $block->escapeHtml($block->getPrettyDate($joke->getApiCreatedAt())) ?></dd>
         
         <hr>
     <?php endforeach; ?>
