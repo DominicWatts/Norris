@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="dominicwatts_norris_joke" resource="default" engine="innodb" comment="dominicwatts_norris_joke Table">
+        <column xsi:type="smallint" name="joke_id" padding="11" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="joke_id"/>
+        </constraint>
+        <column name="tag" nullable="true" xsi:type="varchar" comment="Tags" length="255"/>
+        <column name="icon_url" nullable="true" xsi:type="varchar" comment="Icon Url" length="255"/>
+        <column name="api_id" nullable="true" xsi:type="varchar" comment="API ID" length="255"/>
+        <index referenceId="DOMINICWATTS_NORRIS_JOKE_ID" indexType="btree">
+            <column name="api_id"/>
+        </index>
+        <column name="url" nullable="true" xsi:type="varchar" comment="Url" length="255"/>
+        <column name="value" nullable="true" xsi:type="varchar" comment="Value" length="255"/>
+        <column name="api_created_at" nullable="true" xsi:type="datetime" comment="API Created At"/>
+        <column name="api_updated_at" nullable="true" xsi:type="datetime" comment="api_updated_at"/>
+        <column name="created_at" nullable="true" xsi:type="datetime" comment="Created At"/>
+        <column name="updated_at" nullable="true" xsi:type="datetime" comment="Updated At"/>
+    </table>
+</schema>
