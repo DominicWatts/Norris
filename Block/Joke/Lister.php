@@ -40,4 +40,14 @@ class Lister extends \Magento\Framework\View\Element\Template
         $collection = $this->collection->create();
         return $collection;
     }
+
+    /**
+     * @param date $date
+     * @return string
+     */
+    public function getPrettyDate($date)
+    {
+        $date = \DateTime::createFromFormat('Y-m-d H:i:s', $date);
+        return $date->format('F j, Y, g:i a');
+    }
 }
