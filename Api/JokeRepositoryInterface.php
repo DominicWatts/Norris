@@ -59,4 +59,3 @@ interface JokeRepositoryInterface
      */
     public function deleteById($jokeId);
 }
-

@@ -165,4 +165,3 @@ interface JokeInterface extends \Magento\Framework\Api\ExtensibleDataInterface
      */
     public function setUpdatedAt($updatedAt);
 }
-

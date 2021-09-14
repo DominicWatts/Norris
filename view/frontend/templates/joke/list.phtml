@@ -6,21 +6,25 @@
 <dl>
     <?php foreach ($jokes as $joke): ?>
         <dt><strong><em><?= $block->escapeHtml(__("URL")) ?></em></strong></dt>
-        <dd><?= /* @noEscape */ __(
-            "<a href='%1' target='_blank'>%2</a>",
-            $block->escapeUrl($joke->getUrl()),
-            $block->escapeUrl($joke->getUrl())
-        ) ?></dd>
+        <dd>
+            <?= /* @noEscape */ __(
+                "<a href='%1' target='_blank'>%2</a>",
+                $block->escapeUrl($joke->getUrl()),
+                $block->escapeUrl($joke->getUrl())
+            ) ?>
+        </dd>
         
         <dt><strong><em><?= $block->escapeHtml(__("Value")) ?></em></strong></dt>
         <dd><?= $block->escapeHtml($joke->getValue()) ?></dd>
 
         <dt><strong><em><?= $block->escapeHtml(__("Icon")) ?></em></strong></dt>
-        <dd><?= /* @noEscape */ __(
-            "<img src='%1' title='%2' name='%2' />",
-            $block->escapeHtmlAttr($joke->getIconUrl()),
-            $block->escapeHtmlAttr($joke->getValue())
-        ) ?></dd>
+        <dd>
+            <?= /* @noEscape */ __(
+                "<img src='%1' title='%2' name='%2' />",
+                $block->escapeHtmlAttr($joke->getIconUrl()),
+                $block->escapeHtmlAttr($joke->getValue())
+            ) ?>
+        </dd>
 
         <?php if ($joke->getTag()): ?> 
         <dt><strong><em><?= $block->escapeHtml(__("Tags")) ?></em></strong></dt>

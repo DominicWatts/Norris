@@ -10,6 +10,7 @@ namespace DominicWatts\Norris\Console\Command;
 use DominicWatts\Norris\Helper\Store as StoreHelper;
 use Magento\Framework\App\Area;
 use Magento\Framework\App\State;
+use Magento\Framework\Console\Cli;
 use Magento\Framework\Stdlib\DateTime\DateTime;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command;
@@ -43,6 +44,17 @@ class Store extends Command
      */
     protected $output;
 
+    /**
+     * @var \Psr\Log\LoggerInterface $logger
+     */
+    protected $state;
+
+    /**
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param \Magento\Framework\App\State $state
+     * @param \DominicWatts\Norris\Helper\Store $helper
+     * @param \Magento\Framework\Stdlib\DateTime\DateTime $dateTime
+     */
     public function __construct(
         LoggerInterface $logger,
         State $state,
@@ -58,6 +70,7 @@ class Store extends Command
 
     /**
      * {@inheritdoc}
+     * @return int
      */
     protected function execute(
         InputInterface $input,
@@ -78,6 +91,8 @@ class Store extends Command
             '%1 Finish Joke Fetch',
             $this->dateTime->gmtDate()
         ));
+
+        return Cli::RETURN_SUCCESS;
     }
 
     /**

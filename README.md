@@ -39,3 +39,7 @@ For example
 Allow Magento cron job to run
 
 Schedule `*/5 * * * *`
+
+## Admin
+
+    Marketing > Jokes > Manage Jokes

@@ -91,7 +91,7 @@ class Store extends AbstractHelper
     public function getJokes()
     {
         $array = $this->curlRequest(self::URL);
-        foreach($array as $row) {
+        foreach ($array as $row) {
             $this->storeJoke($row);
         }
     }
