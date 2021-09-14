@@ -22,7 +22,7 @@ Cos norris says so
 
 ## Listing
 
-For listing page Go to `/dominicwatts_norris/joke/lister` or use header link
+For listing page Go to `/dominicwatts_norris/joke/lister`
 
 ## Console command
 
