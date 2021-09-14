@@ -7,11 +7,11 @@ declare(strict_types=1);
 
 namespace DominicWatts\Norris\Helper;
 
+use DominicWatts\Norris\Model\JokeFactory;
 use Magento\Framework\App\Helper\AbstractHelper;
-use Psr\Log\LoggerInterface;
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\HTTP\Client\Curl;
-use DominicWatts\Norris\Model\JokeFactory;
+use Psr\Log\LoggerInterface;
 
 class Store extends AbstractHelper
 {
@@ -21,12 +21,12 @@ class Store extends AbstractHelper
      * @var \Psr\Log\LoggerInterface
      */
     protected $logger;
-    
+
     /**
      * @var \Magento\Framework\HTTP\Client\Curl
      */
     protected $curl;
-    
+
     /**
      * @var \DominicWatts\Norris\Model\JokeFactory
      */
@@ -74,7 +74,6 @@ class Store extends AbstractHelper
 
             $array = \Zend_Json::decode($response, true);
             return $array['total'] > 0 ? $array['result'] : [];
-
         } catch (\Zend_Json_Exception $e) {
             $this->logger->critical(
                 __("Response Error : %1", $e->getMessage())

@@ -16,6 +16,7 @@ class Joke extends \Magento\Framework\Model\AbstractModel
     protected $dataObjectHelper;
     protected $_eventPrefix = 'dominicwatts_norris_joke';
     protected $jokeDataFactory;
+    protected $dateTime;
 
     /**
      * @param \Magento\Framework\Model\Context $context
@@ -62,14 +63,14 @@ class Joke extends \Magento\Framework\Model\AbstractModel
     public function getDataModel()
     {
         $jokeData = $this->getData();
-        
+
         $jokeDataObject = $this->jokeDataFactory->create();
         $this->dataObjectHelper->populateWithArray(
             $jokeDataObject,
             $jokeData,
             JokeInterface::class
         );
-        
+
         return $jokeDataObject;
     }
 }

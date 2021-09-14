@@ -86,9 +86,9 @@ class JokeRepository implements JokeRepositoryInterface
             [],
             \DominicWatts\Norris\Api\Data\JokeInterface::class
         );
-        
+
         $jokeModel = $this->jokeFactory->create()->setData($jokeData);
-        
+
         try {
             $this->resource->save($jokeModel);
         } catch (\Exception $exception) {
@@ -120,22 +120,22 @@ class JokeRepository implements JokeRepositoryInterface
         \Magento\Framework\Api\SearchCriteriaInterface $criteria
     ) {
         $collection = $this->jokeCollectionFactory->create();
-        
+
         $this->extensionAttributesJoinProcessor->process(
             $collection,
             \DominicWatts\Norris\Api\Data\JokeInterface::class
         );
-        
+
         $this->collectionProcessor->process($criteria, $collection);
-        
+
         $searchResults = $this->searchResultsFactory->create();
         $searchResults->setSearchCriteria($criteria);
-        
+
         $items = [];
         foreach ($collection as $model) {
             $items[] = $model->getDataModel();
         }
-        
+
         $searchResults->setItems($items);
         $searchResults->setTotalCount($collection->getSize());
         return $searchResults;
