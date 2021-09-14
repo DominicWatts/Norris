@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="DominicWatts_Norris::Joke" title="Jokes" module="DominicWatts_Norris" sortOrder="100" resource="DominicWatts_Norris::Joke" parent="Magento_Backend::marketing"/>
+        <add id="DominicWatts_Norris::Joke_view" title="Manage Jokes" module="DominicWatts_Norris" sortOrder="10" resource="DominicWatts_Norris::Joke_view" parent="DominicWatts_Norris::Joke" action="dominicwatts_norris/joke/index"/>
+    </menu>
+</config>

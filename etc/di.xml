@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="Norris_Store" xsi:type="object">DominicWatts\Norris\Console\Command\Store</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="DominicWatts\Norris\Api\JokeRepositoryInterface" type="DominicWatts\Norris\Model\JokeRepository"/>
+    <preference for="DominicWatts\Norris\Api\Data\JokeInterface" type="DominicWatts\Norris\Model\Data\Joke"/>
+    <preference for="DominicWatts\Norris\Api\Data\JokeSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <virtualType name="DominicWatts\Norris\Model\ResourceModel\Joke\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">dominicwatts_norris_joke</argument>
+            <argument name="resourceModel" xsi:type="string">DominicWatts\Norris\Model\ResourceModel\Joke\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="dominicwatts_norris_joke_listing_data_source" xsi:type="string">DominicWatts\Norris\Model\ResourceModel\Joke\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
